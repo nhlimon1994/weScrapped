@@ -107,7 +107,7 @@
               </picture> 
               <h3 class="text-center d-none d-md-block">Start Here</h3> 
               <form method="post" action="javascript:;" name="form" id="theForm" enctype="application/x-www-form-urlencoded"> 
-                
+<!--                 
                   <input type="hidden" name="zip_check_city" id="zip_check_city" value=""/> 
                   <input type="hidden" name="zip_check_state" id="zip_check_state" value=""/> 
                   <input type="hidden" name="fs_address" id="fs_address" value=""/> 
@@ -121,7 +121,7 @@
                   <input type="hidden" id="signupStart" name="signupStart" value=""/> 
                   <input type="hidden" name="dataString" id="dataString" value='https://dummy.com/?oid=1&pid=78&uid=0&gid=1674'/> 
                   <input type="hidden" id="tabid" name="tabid" value="0"/> 
- 
+  -->
                 <div class="formcont"> 
                   <div class="form-group"> 
                     <label for="fs_firstname"><span class="invalid-feedback">Please Enter Your </span>First Name</label> 
@@ -365,34 +365,10 @@
 </div> 
      
   <script type="text/javascript" src="https/wwwclickfreescorecom/resources/js/efvanilla_5046290.js"></script> 
-  <script> 
-    document.addEventListener('DOMContentLoaded', function() { 
-      EF.click({
-    offer_id: EF.urlParameter("oid"),
-    affiliate_id: EF.urlParameter("pid"),
-    sub1: EF.urlParameter("sub1"),
-    sub2: EF.urlParameter("sub2"),
-    sub3: EF.urlParameter("sub3"),
-    sub4: EF.urlParameter("sub4"),
-    sub5: EF.urlParameter("sub5"),
-    uid: EF.urlParameter("uid"),
-    source_id: EF.urlParameter("source_id"),
-    transaction_id: EF.urlParameter("_ef_transaction_id")
-})
-.then((transactionId) => {
-  console.log(transactionId);
   
-function eqs(n){for(var e in n)""!==n[e]&&undefined!==n[e]&&null!==n[e]&&"null"!==n[e]&&"undefined"!==n[e]||delete n[e];return n}
-
-const qsval=new Proxy(new URLSearchParams(window.location.search),{get:(e,a)=>e.get(a)}),qsarr={pfid:qsval.pfid,eft:qsval.eft},qstosend="&"+decodeURIComponent($.param(eqs(qsarr)))+"&eftid="+transactionId;var x=new XMLHttpRequest;x.open("GET","https/wwwclickfreescorecom/dbapi2_4784213.html"+qstosend+"&path="+location.pathname.substr(9),!0),x.send();  
-
-document.getElementById("everflowTransactionId").value = transactionId;
-}); 
-    }); 
-  </script> 
  
 <script src="https/wwwclickfreescorecom/resources/js/jquery.3.7.0.min_5308450.js"></script> 
-<script src="https/wwwclickfreescorecom/general/js/bootstrap/462/bootstrap.min_8060973.js" integrity="sha384-TOLwco7d2FAacKQd3eNA7EFjUe8yYXQYvPYlEslFuKGuFoyPHus9pZr2/chl6n4O" crossorigin="anonymous"></script> 
+<script src="https/wwwclickfreescorecom/general/js/bootstrap/462/bootstrap.min_8060973.js"  crossorigin="anonymous"></script> 
 <script src="https/wwwclickfreescorecom/resources/js/jquery.validate.1.19.5.min_6488064.js"></script> 
 <script src="https/wwwclickfreescorecom/general/js/signuppath_393279.js"></script> 
      
@@ -408,7 +384,7 @@ this},r._applyDataApi=function(){var e={};t("[data-match-height], [data-mh]").ea
     function popit(a){window.open(a,"Window","height=1000,width=900,menubar=0,status=0,toolbar=0,scrollbars=1")} 
      
 $(function(){ 
-    function cqs(n){for(var e in n)""!==n[e]&&undefined!==n[e]&&null!==n[e]&&"null"!==n[e]&&"undefined"!==n[e]||delete n[e];return n}const urlQS=new Proxy(new URLSearchParams(window.location.search),{get:(searchParams,prop)=>searchParams.get(prop)}),qsarray={sub1:urlQS.sub1,sub2:urlQS.sub2,sub3:urlQS.sub3,sub5:urlQS.sub5,clid:urlQS.clid},qstoadd = "&"+decodeURIComponent($.param(cqs(qsarray)));qstoadd.length>3?($("form").attr("action","s/a_2490491.html"+qstoadd)):($("form").attr("action","s/a_2490491.html")); 
+    // function cqs(n){for(var e in n)""!==n[e]&&undefined!==n[e]&&null!==n[e]&&"null"!==n[e]&&"undefined"!==n[e]||delete n[e];return n}const urlQS=new Proxy(new URLSearchParams(window.location.search),{get:(searchParams,prop)=>searchParams.get(prop)}),qsarray={sub1:urlQS.sub1,sub2:urlQS.sub2,sub3:urlQS.sub3,sub5:urlQS.sub5,clid:urlQS.clid},qstoadd = "&"+decodeURIComponent($.param(cqs(qsarray)));qstoadd.length>3?($("form").attr("action","s/a_2490491.html"+qstoadd)):($("form").attr("action","s/a_2490491.html")); 
     $("#qs").val(window.location.search.substring(1)); 
     let stripArray = ["{email}","{Email}","[email]","[Email]","%7bemail%7d"]; 
     function parseQueryString(){if(queries=window.location.search.substring(1).split("&"),null!=queries&&""!=queries){for(params={},i=0,l=queries.length;i<l;i++){temp=queries[i].split("=");params[temp[0]]=decodeURIComponent(temp[1]);for(let j=0;j<=stripArray.length;j++){if(decodeURIComponent(temp[1]).includes(stripArray[j])){params[temp[0]]=decodeURIComponent(temp[1]).replace(stripArray[j],'')}}}
@@ -450,24 +426,7 @@ $("form").validate({focusInvalid:true,invalidHandler:function(form,validator){va
             regex: /^(([^{}<>()[\]\\.,;:\s@\"]+(\.[^{}<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, 
             email: !0, 
             required: !0, 
-            remote: { 
-                url: "https/wwwclickfreescorecom/lp_domain_check_3276813.html", 
-                type: "GET", 
-                data: { 
-                    fs_email: function() { 
-                        let domain; 
-                        try { 
-                          domain = $("#fs_email").val().split("@")[1]; 
-                        } catch (err) { 
-                          return ''; 
-                        } 
-                        return domain; 
-                    } 
-                }, 
-                dataFilter: function(a) { 
-                    return !(0 < a) 
-                } 
-            } 
+        
         }, 
         fs_zip: { 
             minlength: 5, 
@@ -520,5 +479,21 @@ $(window).on("scroll",function(){$(this).scrollTop()>250?$(".footer img.backtoto
 $("form input:visible").each(function(){$(this).attr("value",$(this).val())}),$("form input[type='text'][value='']:first").focus(),$(".footer img.backtotop").on("click",function(){$("html,body").animate({scrollTop:$("body").offset().top},300)}),$(window).on("load",function(){$(".cont1 .card form button svg").fadeIn(200)}); 
  
     </script> 
+    <script>
+      document.getElementById('theForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        console.log('this form submitted')
+        const formData = new FormData(this);
+        const data = {};
+        
+        formData.forEach((value, key) => data[key] = value);
+        
+        // Store the form data in localStorage
+        localStorage.setItem('form1Data', JSON.stringify(data));
+        
+        // Redirect to the next form page
+        window.location.href = 'page1.html';
+      });
+      </script>
   </body> 
 </html>

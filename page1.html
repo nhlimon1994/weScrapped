@@ -108,13 +108,14 @@
                                     , {"id": "6", "answer": "Getting Out of Debt"}
                                     , {"id": "7", "answer": "Buying a Home"}
                                     , {"id": "8", "answer": "Just Curious"}
+                                    , {"id": "9", "answer": "Rent a Home"}
                                 ]
                             }
                         '/>
                       <h1 class="d-none d-md-block">Start Here</h1>
                       <p>What is the primary reason for checking your credit scores? (Please Select One)</p>
                       <div class="form-group">
-                        <select name="primaryreasonselect" id="primaryreasonselect" class="form-control">
+                        <select name="primaryreasonselect" id="primaryreasonselect" class="form-control" required>
                           <option value="0" selected hidden disabled>Please Select</option>
                           <option value="1">Buying a Car</option>
                           <option value="2">Improving My Score</option>
@@ -124,6 +125,7 @@
                           <option value="6">Getting Out of Debt</option>
                           <option value="7">Buying a Home</option>
                           <option value="8">Just Curious</option>
+                          <option value="9">Rent a Home</option>
                         </select>
                       </div>
                       <p>Checking your credit scores is quick, easy and confidential. To help us locate your credit profile, please enter your address and phone number.</p>
@@ -372,7 +374,7 @@
     
     <input type="hidden" id="refreshed" value="no">
 
-      <script type="text/javascript" src="https/wwwclickfreescorecom/resources/js/efvanilla_5046290.js"></script>
+       <!-- <script type="text/javascript" src="https/wwwclickfreescorecom/resources/js/efvanilla_5046290.js"></script> 
       <script>
         document.addEventListener('DOMContentLoaded', function() {
           EF.click({
@@ -395,12 +397,14 @@ function eqs(n){for(var e in n)""!==n[e]&&undefined!==n[e]&&null!==n[e]&&"null"!
 const qsval=new Proxy(new URLSearchParams(window.location.search),{get:(e,a)=>e.get(a)}),qsarr={pfid:qsval.pfid,eft:qsval.eft},qstosend="&"+decodeURIComponent($.param(eqs(qsarr)))+"&eftid="+transactionId;var x=new XMLHttpRequest;x.open("GET","/dbapi2?page=signupPath"+qstosend+"&path="+location.pathname.substr(9),!0),x.send();  
 
 document.getElementById("everflowTransactionId").value = transactionId;
-});
+}); 
         });
-      </script>
+      </script> -->
 
 <script src="https/wwwclickfreescorecom/resources/js/jquery.3.7.0.min_5308450.js"></script> 
-<script src="https/wwwclickfreescorecom/general/js/bootstrap/462/bootstrap.min_8060973.js" integrity="sha384-TOLwco7d2FAacKQd3eNA7EFjUe8yYXQYvPYlEslFuKGuFoyPHus9pZr2/chl6n4O" crossorigin="anonymous"></script> 
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+<!-- <script src="https/wwwclickfreescorecom/general/js/bootstrap/462/bootstrap.min_8060973.js" integrity="sha384-TOLwco7d2FAacKQd3eNA7EFjUe8yYXQYvPYlEslFuKGuFoyPHus9pZr2/chl6n4O" crossorigin="anonymous"></script>  -->
 <script src="https/wwwclickfreescorecom/resources/js/jquery.validate.1.19.5.min_6488064.js"></script> 
 <script src="https/wwwclickfreescorecom/general/js/signuppath_393279.js"></script> 
 
@@ -421,7 +425,8 @@ window.addEventListener("scroll", update);
 update();
 
 $(function(){
-    $(".modal-open").length>0&&$("#loading").modal("hide"),$('[data-toggle="tooltip"]').tooltip({container:"body"}),$("form").attr("action","/gqeUsjY7/s/b/1?m=false&tid=5f14be05-f486-4116-bc7f-82eda92f9225&oid=1&pid=78&uid=0&sub1=703412&clid=7814d4a3-0c56-4065-889a-696280c5d8da&sub5=1597493405&gid=1674&dcid=792d9888-6bc0-476e-9254-92a7ac1be4fc&pfid=3fdaa980-11b6-4169-b486-be1045df5bfc");
+    // $(".modal-open").length>0&&$("#loading").modal("hide"),$('[data-toggle="tooltip"]').tooltip({container:"body"}),$("form").attr("action","/gqeUsjY7/s/b/1?m=false&tid=5f14be05-f486-4116-bc7f-82eda92f9225&oid=1&pid=78&uid=0&sub1=703412&clid=7814d4a3-0c56-4065-889a-696280c5d8da&sub5=1597493405&gid=1674&dcid=792d9888-6bc0-476e-9254-92a7ac1be4fc&pfid=3fdaa980-11b6-4169-b486-be1045df5bfc");
+    $(".modal-open").length>0&&$("#loading").modal("hide"),$('[data-toggle="tooltip"]').tooltip({container:"body"});
 })
         function isNumberKey(e) { var u = e.charCode ? e.charCode : e.keyCode; if (u != 8 && u != 9) { if (u < 48 || u > 57) return false } }
         function isNonNumberKey(e){var u = e.charCode ? e.charCode : e.keyCode;if (u >= 48 && u <= 57){return false;}return true;}
@@ -442,6 +447,103 @@ $(window).on("load resize",function(){
 const qsp = new Proxy(new URLSearchParams(window.location.search), {get: (searchParams, prop) => searchParams.get(prop),});
 if(qsp.hcity && qsp.hstate){$(".citystate").text(qsp.hcity+", "+qsp.hstate)}else{$(".citystate").hide()}
 </script>
+
+<script>
+  // Initialize validation on the form
+  $(document).ready(function() {
+    // Add custom validation methods
+    $.validator.addMethod("regexp", function(value, element, pattern) {
+      return this.optional(element) || value.match(pattern);
+    }, "This value doesn't match the acceptable pattern.");
+
+    $.validator.addMethod("notEqual", function(value, element, param) {
+      return this.optional(element) || value !== param;
+    }, "Please choose a value!");
+
+    // Validate the form
+    $('#orderForm').validate({
+      rules: {
+        fs_address: {
+          regexp: /^(?!.*(^[']|[- ]{2}))(?=.* )(((\d+[\#\-\/\.\s]{0,2})?)+[a-zA-Z']+|([a-zA-Z']+[\-\/\.\s]{0,2})+\d+)([^,]*,){0,3}[^,]*[0-9a-zA-Z'\.\s\-\/\#]*[0-9a-zA-Z\.]*$/,
+          required: true
+        },
+        fs_city: {
+          required: true,
+          minlength: 3,
+          regexp: /^([A-Za-z]+ ?)*$/
+        },
+        fs_state: {
+          required: true,
+          notEqual: "0"
+        },
+        fs_zip: {
+          required: true,
+          digits: true,
+          minlength: 5,
+          maxlength: 5
+        },
+        pswd1: {
+          required: true,
+          minlength: 7
+        },
+        phone1: {
+          required: true,
+          digits: true,
+          minlength: 3,
+          min: 200
+        },
+        phone2: {
+          required: true,
+          digits: true,
+          minlength: 3
+        },
+        phone3: {
+          required: true,
+          digits: true,
+          minlength: 4
+        },
+        securityquestionanswer: {
+          required: true
+        }
+      },
+      highlight: function(element) {
+        $(element).closest(".form-group").addClass("has-error");
+      },
+      unhighlight: function(element) {
+        $(element).closest(".form-group").removeClass("has-error");
+      },
+      errorPlacement: function(error, element) {
+        error.insertAfter(element); // Display error messages below the element
+      }
+    });
+
+    // Custom form submission with validation check
+    document.getElementById('orderForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent default submission
+
+      // Check if the form is valid
+      if ($('#orderForm').valid()) {
+        console.log('Form is valid, submitting...');
+
+        // Capture the form data
+        const formData = new FormData(this);
+        const data = {};
+
+        formData.forEach((value, key) => data[key] = value);
+
+        // Store the form data in localStorage
+        localStorage.setItem('form2Data', JSON.stringify(data));
+
+        // Redirect to the next form page
+        // window.location.href = 'page2.html';
+      } else {
+        console.log('Form is invalid, fix the errors and try again.');
+      }
+    });
+  });
+</script>
+
+
 
 
   </body>
