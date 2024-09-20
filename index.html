@@ -405,6 +405,19 @@ return params}}
     767<$(document).outerWidth(),$(".form-control:not(select)").each(function(){""!=$(this).val()&&$(this).addClass("hasValue")}),$(".form-control:not(input)").each(function(){"0"!=$(this).val()&&$(this).addClass("hasValue")}); 
  
 $.validator.addMethod("regex",function(a,b,c){var d=new RegExp(c);return this.optional(b)||d.test(a)},""); 
+
+
+
+
+ });
+ 
+$(window).on("scroll",function(){$(this).scrollTop()>250?$(".footer img.backtotop").stop().fadeIn(200):$(".footer img.backtotop").stop().fadeOut(200)}); 
+$("form input:visible").each(function(){$(this).attr("value",$(this).val())}),$("form input[type='text'][value='']:first").focus(),$(".footer img.backtotop").on("click",function(){$("html,body").animate({scrollTop:$("body").offset().top},300)}),$(window).on("load",function(){$(".cont1 .card form button svg").fadeIn(200)}); 
+ 
+    </script> 
+    <script>
+      $(document).ready(function() {
+
 $("form").validate({focusInvalid:true,invalidHandler:function(form,validator){var errors=validator.numberOfInvalids();if(errors){var firstInvalidElement=$(validator.errorList[0].element).closest(".form-group");$('html,body').animate({scrollTop: firstInvalidElement.offset().top - 8},200)}}, 
     submitHandler: function(a) { 
         $(a).valid() && ($(".cont1 form button.btn").prop("disabled", !0),$("#loading").modal("show"),a.submit()) 
@@ -474,26 +487,32 @@ $("form").validate({focusInvalid:true,invalidHandler:function(form,validator){va
 }); 
  
 }); 
- 
-$(window).on("scroll",function(){$(this).scrollTop()>250?$(".footer img.backtotop").stop().fadeIn(200):$(".footer img.backtotop").stop().fadeOut(200)}); 
-$("form input:visible").each(function(){$(this).attr("value",$(this).val())}),$("form input[type='text'][value='']:first").focus(),$(".footer img.backtotop").on("click",function(){$("html,body").animate({scrollTop:$("body").offset().top},300)}),$(window).on("load",function(){$(".cont1 .card form button svg").fadeIn(200)}); 
- 
-    </script> 
-    <script>
-      document.getElementById('theForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        console.log('this form submitted')
+
+
+document.getElementById('theForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent default submission
+
+      // Check if the form is valid
+      if ($('#theForm').valid()) {
+        console.log('Form is valid, submitting...');
+
+        // Capture the form data
         const formData = new FormData(this);
         const data = {};
-        
+
         formData.forEach((value, key) => data[key] = value);
-        
+
         // Store the form data in localStorage
         localStorage.setItem('form1Data', JSON.stringify(data));
-        
+
         // Redirect to the next form page
         window.location.href = 'page1.html';
-      });
+      } else {
+        console.log('Form is invalid, fix the errors and try again.');
+      }
+    });
+
+      
       </script>
   </body> 
 </html>
