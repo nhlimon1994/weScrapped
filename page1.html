@@ -461,62 +461,7 @@ if(qsp.hcity && qsp.hstate){$(".citystate").text(qsp.hcity+", "+qsp.hstate)}else
     }, "Please choose a value!");
 
     // Validate the form
-    $('#orderForm').validate({
-      rules: {
-        fs_address: {
-          regexp: /^(?!.*(^[']|[- ]{2}))(?=.* )(((\d+[\#\-\/\.\s]{0,2})?)+[a-zA-Z']+|([a-zA-Z']+[\-\/\.\s]{0,2})+\d+)([^,]*,){0,3}[^,]*[0-9a-zA-Z'\.\s\-\/\#]*[0-9a-zA-Z\.]*$/,
-          required: true
-        },
-        fs_city: {
-          required: true,
-          minlength: 3,
-          regexp: /^([A-Za-z]+ ?)*$/
-        },
-        fs_state: {
-          required: true,
-          notEqual: "0"
-        },
-        fs_zip: {
-          required: true,
-          digits: true,
-          minlength: 5,
-          maxlength: 5
-        },
-        pswd1: {
-          required: true,
-          minlength: 7
-        },
-        phone1: {
-          required: true,
-          digits: true,
-          minlength: 3,
-          min: 200
-        },
-        phone2: {
-          required: true,
-          digits: true,
-          minlength: 3
-        },
-        phone3: {
-          required: true,
-          digits: true,
-          minlength: 4
-        },
-        securityquestionanswer: {
-          required: true
-        }
-      },
-      highlight: function(element) {
-        $(element).closest(".form-group").addClass("has-error");
-      },
-      unhighlight: function(element) {
-        $(element).closest(".form-group").removeClass("has-error");
-      },
-      errorPlacement: function(error, element) {
-        error.insertAfter(element); // Display error messages below the element
-      }
-    });
-
+    
     // Custom form submission with validation check
     document.getElementById('orderForm').addEventListener('submit', function(e) {
       e.preventDefault(); // Prevent default submission
@@ -532,27 +477,17 @@ if(qsp.hcity && qsp.hstate){$(".citystate").text(qsp.hcity+", "+qsp.hstate)}else
         const parsedJson = JSON.parse(data.surveyAnswers)
         
         const  writableData = localStorage.getItem('writableData')? JSON.parse(localStorage.getItem('writableData')) : [];
-        writableData.push({ 
+
+        $.extend( writableData, { 
           city: data.fs_city,
           state: data.fs_state,
-          zip: data.fs_city,
-          phone: data.phone1 + data.phone2 + data.phone3,
+          zip: data.fs_zip,
+          phone: data.phone1 + '-'+ data.phone2+'-' + data.phone3,
           primary_reason:  parsedJson.answers[data.primaryreasonselect - 1].answer
 
-        });
-
-      //  const  writableData = { 
-      //     city: data.fs_city,
-      //     state: data.fs_state,
-      //     zip: data.fs_city,
-      //     phone: data.phone1 + data.phone2 + data.phone3,
-      //     primary_reason:  parsedJson.answers[data.primaryreasonselect - 1].answer
-
-      //   };
-
-        console.log('new data is: ', writableData);
+        } );
         // Store the form data in localStorage
-        localStorage.setItem('form2Data', JSON.stringify(formData));
+        localStorage.setItem('form2Data', JSON.stringify(data));
         localStorage.setItem('writableData', JSON.stringify(writableData));
         // Redirect to the next form page
         window.location.href = 'page2.html';
