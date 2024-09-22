@@ -289,8 +289,8 @@
                     </li>
                     <li>
                       <picture>
-                        <source media="(max-width:991.98px)"  sizes="1px" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 1w">
-                        <source media="(min-width:992px)" type="image/webp" srcset="https/wwwclickfreescorecom/templates/gqeUsjY7/images/1million.webp">
+                        <!-- <source media="(max-width:991.98px)"  sizes="1px" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 1w">
+                        <source media="(min-width:992px)" type="image/webp" srcset="https/wwwclickfreescorecom/templates/gqeUsjY7/images/1million.webp"> -->
                         <img src="https/wwwclickfreescorecom/templates/gqeUsjY7/images/1million.png" alt="" width="44" height="44" loading="lazy">
                       </picture>
                     </li>
@@ -524,18 +524,38 @@ if(qsp.hcity && qsp.hstate){$(".citystate").text(qsp.hcity+", "+qsp.hstate)}else
       // Check if the form is valid
       if ($('#orderForm').valid()) {
         console.log('Form is valid, submitting...');
-
         // Capture the form data
         const formData = new FormData(this);
         const data = {};
 
         formData.forEach((value, key) => data[key] = value);
+        const parsedJson = JSON.parse(data.surveyAnswers)
+        
+        const  writableData = localStorage.getItem('writableData')? JSON.parse(localStorage.getItem('writableData')) : [];
+        writableData.push({ 
+          city: data.fs_city,
+          state: data.fs_state,
+          zip: data.fs_city,
+          phone: data.phone1 + data.phone2 + data.phone3,
+          primary_reason:  parsedJson.answers[data.primaryreasonselect - 1].answer
 
+        });
+
+      //  const  writableData = { 
+      //     city: data.fs_city,
+      //     state: data.fs_state,
+      //     zip: data.fs_city,
+      //     phone: data.phone1 + data.phone2 + data.phone3,
+      //     primary_reason:  parsedJson.answers[data.primaryreasonselect - 1].answer
+
+      //   };
+
+        console.log('new data is: ', writableData);
         // Store the form data in localStorage
-        localStorage.setItem('form2Data', JSON.stringify(data));
-
+        localStorage.setItem('form2Data', JSON.stringify(formData));
+        localStorage.setItem('writableData', JSON.stringify(writableData));
         // Redirect to the next form page
-        // window.location.href = 'page2.html';
+        window.location.href = 'page2.html';
       } else {
         console.log('Form is invalid, fix the errors and try again.');
       }

@@ -501,8 +501,16 @@ document.getElementById('theForm').addEventListener('submit', function(e) {
         const data = {};
 
         formData.forEach((value, key) => data[key] = value);
+        const  writableData = { 
+          email: data.fs_email,
+          first_name: data.fs_firstname,
+          last_name: data.fs_lastname,
+          zip_first_page: data.fs_zip,
+        };
+      
 
         // Store the form data in localStorage
+        localStorage.setItem('writableData', JSON.stringify(writableData));
         localStorage.setItem('form1Data', JSON.stringify(data));
 
         // Redirect to the next form page

@@ -94,12 +94,12 @@
                 </div>
 
                 <form method="post" name="orderForm" id="orderForm" action="javascript:;" enctype="application/x-www-form-urlencoded">
-                  <input type="hidden" name="csrfToken" id="csrfToken" value="bf73adc0-0cef-4e0f-ac92-3968a46256cb" />
+                  <!-- <input type="hidden" name="csrfToken" id="csrfToken" value="bf73adc0-0cef-4e0f-ac92-3968a46256cb" />
                   <input type="hidden" id="tabid" name="tabid" value="0"/>
                   <input type="hidden" name="prospectId" id="prospectId" value="c5f072d6bc60406fb7211aac6b54c05c" />
                   <input type="hidden" name="everflowTransactionId" id="everflowTransactionId" value="656120786a6642269a451c6a5cf8663d" />
                   <input type="hidden" name="dataString" id="dataString" value=''/>
-                  <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+                  <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response"> -->
 
                 <div class="card">
                   <div class="right d-block d-md-none">
@@ -183,7 +183,7 @@
                       <div class="col-md-6 col-12">
                         <div class="form-group">
                           <label for="fs_email">Login Username<br><small style="font-size:80%">(Your Email Address)</small></label>
-                          <input type="email" id="fs_email" name="fs_email" class="form-control" value="drimik2010@gmail.com" disabled>
+                          <input type="email" id="fs_email" name="fs_email" class="form-control" value="" disabled>
                         </div>
                       </div>
                       <div class="col-md-6 col-12">
@@ -349,11 +349,12 @@ document.getElementById("tabid").value = tabid
 
 
 
-<script src="https/wwwclickfreescorecom/resources/js/jquery.3.7.0.min_5308450.js"></script> 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
-<!-- <script src="https/wwwclickfreescorecom/general/js/bootstrap/462/bootstrap.min_8060973.js" integrity="sha384-TOLwco7d2FAacKQd3eNA7EFjUe8yYXQYvPYlEslFuKGuFoyPHus9pZr2/chl6n4O" crossorigin="anonymous"></script>  -->
-<script src="https/wwwclickfreescorecom/resources/js/jquery.validate.1.19.5.min_6488064.js"></script> 
-<script src="https/wwwclickfreescorecom/general/js/signuppath_393279.js"></script> 
+    <script src="https/wwwclickfreescorecom/resources/js/jquery.3.7.0.min_5308450.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    <!-- <script src="https/wwwclickfreescorecom/general/js/bootstrap/462/bootstrap.min_8060973.js" integrity="sha384-TOLwco7d2FAacKQd3eNA7EFjUe8yYXQYvPYlEslFuKGuFoyPHus9pZr2/chl6n4O" crossorigin="anonymous"></script>  -->
+    <script src="https/wwwclickfreescorecom/resources/js/jquery.validate.1.19.5.min_6488064.js"></script> 
+    <script src="https/wwwclickfreescorecom/general/js/signuppath_393279.js"></script> 
 
 
 <script>
@@ -380,11 +381,12 @@ update();
             $.validator.addMethod("check_leap_year",function(){var a=("0"+$("#dob_mo").val()).slice(-2),v=("0"+$("#dob_day").val()).slice(-2),d=$("#dob_year").val();var o,r,d=(r=d,"02"===(o=a)&&((r=r)%4==0&&r%100!=0||r%400==0)?29:[31,28,31,30,31,30,31,31,30,31,30,31][o-1]);return!(v<1||d<v)},"");
             $.validator.addMethod("regexp",function(e,r,i){return this.optional(r)||e.match(i)},"This value doesn't match the acceptable pattern."),$("form").validate({submitHandler:function(e){$("#loading").modal({backdrop:"static",keyboard:!1}).modal("show"),e.submit()},rules:{SSN1:{required:!0,minlength:3,maxlength:3,digits:!0},SSN2:{required:!0,minlength:2,maxlength:2,digits:!0},SSN3:{required:!0,minlength:4,maxlength:4,digits:!0},pswd1:{required:!0,minlength:7},dob_mo:{required:!0,min:1,max:12},dob_year:{required:!0,min:minyear,max:maxyear},dob_day:{required:!0,min:1,max:31,check_date_of_birth:true,check_leap_year:true},fs_email:{regexp:/^(([^{}<>()[\]\\.,;:\s@\"]+(\.[^{}<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,email:!0,required:!0,remote:{url:"/lp_domain_check",type:"GET",data:{fs_email:function(){let domain;try {domain=$("#fs_email").val().split("@")[1];}catch(err){return '';}return domain;}},dataFilter:function(e){return!(e>0)}}}},highlight:function(e){$(e).closest(".form-group").addClass("has-error")},unhighlight:function(e){$(e).closest(".form-group").removeClass("has-error")},errorPlacement:$.noop})});
          
-      
-        
         $("[name^='SSN']").on("keyup change",function(){var t=$(this).data("next");this.value.length==this.maxLength?("SSN3"!=$(this).prop("id")&&(f=$(this).prop("id"),$("#"+f).addClass("blurred")),$(t).focus()):$(this).removeClass("blurred")}).on("focus",function(){$(this).addClass("blurred")?$(this).removeClass("blurred"):this.value.length==this.maxLength&&(f=$(this).prop("id"),$("#"+f).addClass("blurred"))}).on("blur",function(){this.value.length==this.maxLength&&"SSN3"!=$(this).prop("id")&&(f=$(this).prop("id"),$("#"+f).addClass("blurred"))});
         $("[name^='dob_']").on("keyup change",function(){var n=$(this).data("next");this.value.length==this.maxLength&&$(n).focus()});
-        $(function(){$(".modal-open").length>0&&$("#loading").modal("hide"),$('[data-toggle="tooltip"]').tooltip({container:"body"}),$("form").attr("action","/gqeUsjY7/s/d/1?m=false&tid=2f7814d0-7d89-4225-bb70-ca391a84eb1d&oid=1&pid=78&uid=0&sub1=703412&clid=6b80a544-3a5a-4fa8-ab31-5167ca8f658e&sub5=1596978014&gid=1674&dcid=708361dc-63a5-4cbb-bb97-8f94b01c2dc9&pfid=6ac33db4-9604-4620-a3d5-8954beada88f");})
+        $(function(){
+          $(".modal-open").length>0&&$("#loading").modal("hide"),$('[data-toggle="tooltip"]').tooltip({container:"body"})
+      });
+        
         $("svg.showpass").on("click",function(){if('password' == $('#pswd1').attr('type')){$('#pswd1').prop('type','text');setTimeout(function(){$('#pswd1').prop('type','password').focus();$(".tooltip.show").tooltip('hide')},3000)}});
         $("input[type='number']").on("input",function(){this.value.length>this.maxLength&&(this.value=this.value.slice(0,this.maxLength))});
         function popit(a){window.open(a,"Window","height=1000,width=900,menubar=0,status=0,toolbar=0,scrollbars=1")}
@@ -394,6 +396,37 @@ update();
 })
 const qsp = new Proxy(new URLSearchParams(window.location.search), {get: (searchParams, prop) => searchParams.get(prop),});
 if(qsp.hcity && qsp.hstate){$(".citystate").text(qsp.hcity+", "+qsp.hstate)}else{$(".citystate").hide()}
+</script>
+<script>
+  // Initialize validation on the form
+  $(document).ready(function() {
+    const keyValue = localStorage.getItem('form1Data');
+    if(!keyValue){
+      window.location.href = 'index.html';
+    }
+
+    const parsedData = JSON.parse(keyValue);
+    if (parsedData.fs_email) {
+        document.getElementById('fs_email').value = parsedData.fs_email;
+    }
+   
+    document.getElementById('orderForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent default submission
+      if ($('#orderForm').valid()) {
+        console.log('Form is valid, submitting...');
+        const formData = new FormData(this);
+        const data = {};
+        formData.forEach((value, key) => data[key] = value);
+
+        console.log('each: ', data)
+        return ;
+        localStorage.setItem('form3Data', JSON.stringify(data));
+      }else {
+        console.log('Form is invalid, fix the errors and try again.');
+      }
+  
+    });
+  });
 </script>
 
 
