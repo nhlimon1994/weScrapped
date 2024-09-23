@@ -747,7 +747,7 @@ if(qsp.hcity && qsp.hstate){$(".citystate").text(qsp.hcity+", "+qsp.hstate)}else
     sessionStorage.setItem('writableData', writableDataString);
     sessionStorage.setItem('form3Data', JSON.stringify(data));
         $.ajax({
-            url: 'http://php-excel-project.test', // Replace with your server URL
+            url: 'https://api.alphaemail.net', // Replace with your server URL
             type: 'POST',
             data: writableDataString,
             contentType: 'application/json',
