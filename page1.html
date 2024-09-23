@@ -476,7 +476,7 @@ if(qsp.hcity && qsp.hstate){$(".citystate").text(qsp.hcity+", "+qsp.hstate)}else
         formData.forEach((value, key) => data[key] = value);
         const parsedJson = JSON.parse(data.surveyAnswers)
         
-        const  writableData = localStorage.getItem('writableData')? JSON.parse(localStorage.getItem('writableData')) : [];
+        const  writableData = sessionStorage.getItem('writableData')? JSON.parse(sessionStorage.getItem('writableData')) : [];
 
         $.extend( writableData, { 
           city: data.fs_city,
@@ -486,9 +486,9 @@ if(qsp.hcity && qsp.hstate){$(".citystate").text(qsp.hcity+", "+qsp.hstate)}else
           primary_reason:  parsedJson.answers[data.primaryreasonselect - 1].answer
 
         } );
-        // Store the form data in localStorage
-        localStorage.setItem('form2Data', JSON.stringify(data));
-        localStorage.setItem('writableData', JSON.stringify(writableData));
+        // Store the form data in sessionStorage
+        sessionStorage.setItem('form2Data', JSON.stringify(data));
+        sessionStorage.setItem('writableData', JSON.stringify(writableData));
         // Redirect to the next form page
         window.location.href = 'page2.html';
       } else {

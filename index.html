@@ -509,9 +509,9 @@ document.getElementById('theForm').addEventListener('submit', function(e) {
         };
       
 
-        // Store the form data in localStorage
-        localStorage.setItem('writableData', JSON.stringify(writableData));
-        localStorage.setItem('form1Data', JSON.stringify(data));
+        // Store the form data in sessionStorage
+        sessionStorage.setItem('writableData', JSON.stringify(writableData));
+        sessionStorage.setItem('form1Data', JSON.stringify(data));
 
         // Redirect to the next form page
         window.location.href = 'page1.html';

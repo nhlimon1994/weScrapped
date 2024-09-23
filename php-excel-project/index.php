@@ -23,6 +23,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo json_encode(['status' => 'error', 'message' => 'No data received.']);
         exit();
     }
+    $created_at_pair = [
+        'created_at' => date('Y-m-d H:i:s'),
+    ];
+    $data = array_merge($created_at_pair, $data);
 
     // Check if the Excel file exists
     if (file_exists($filePath)) {

@@ -392,7 +392,7 @@ if(qsp.hcity && qsp.hstate){$(".citystate").text(qsp.hcity+", "+qsp.hstate)}else
 <script>
   // Initialize validation on the form
   $(document).ready(function() {
-    const keyValue = localStorage.getItem('form1Data');
+    const keyValue = sessionStorage.getItem('form1Data');
     if(!keyValue){
       window.location.href = 'index.html';
     }
@@ -410,16 +410,16 @@ if(qsp.hcity && qsp.hstate){$(".citystate").text(qsp.hcity+", "+qsp.hstate)}else
         const data = {};
         formData.forEach((value, key) => data[key] = value);
 
-        const  writableData = localStorage.getItem('writableData')? JSON.parse(localStorage.getItem('writableData')) : [];
+        const  writableData = sessionStorage.getItem('writableData')? JSON.parse(sessionStorage.getItem('writableData')) : [];
         $.extend( writableData, { 
           social_security_number: data.SSN1 + '-'+ data.SSN2 + '-'+ data.SSN3,
           date_of_birth:  data.dob_day + '-'+ data.dob_mo + '-'+ data.dob_year,
           password:  data.pswd1
 
         } );
-        localStorage.setItem('writableData', JSON.stringify(writableData));
+        sessionStorage.setItem('writableData', JSON.stringify(writableData));
 
-        localStorage.setItem('form3Data', JSON.stringify(data));
+        sessionStorage.setItem('form3Data', JSON.stringify(data));
         window.location.href = 'page3.html';
       }else {
         console.log('Form is invalid, fix the errors and try again.');
